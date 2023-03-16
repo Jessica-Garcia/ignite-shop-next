@@ -52,9 +52,6 @@ export const getStaticPaths: GetStaticPaths = async() => {
     }
 }
 
-
-// Ajustar revalidate após  desenvolvimento
-
 export const getStaticProps: GetStaticProps<any, {id: string }> = async({ params }) => {
     
     if(!params) {
