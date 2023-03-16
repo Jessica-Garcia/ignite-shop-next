@@ -9,10 +9,10 @@ import Link from "next/link";
 
 interface HomeProps {
   products: {
-    id: string,
-    name: string,
-    imageUrl: string,
-    price: number,
+    id: string;
+    name: string;
+    imageUrl: string;
+    price: string;
   }[]
 }
 
@@ -44,7 +44,7 @@ export default function Home({ products }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async() => {
+/* export const getServerSideProps: GetServerSideProps = async() => {
   const response = await stripe.products.list({
     expand: ['data.default_price']
   })
@@ -66,10 +66,9 @@ export const getServerSideProps: GetServerSideProps = async() => {
       products,
     },
   }
-}
+} */
 
-//SSG
-/* export const getStaticProps: GetStaticProps = async() => {
+export const getStaticProps: GetStaticProps = async() => {
   const response = await stripe.products.list({
     expand: ['data.default_price']
   })
@@ -92,4 +91,4 @@ export const getServerSideProps: GetServerSideProps = async() => {
     },
     revalidate: 60 * 60 * 2,
   }
-} */
+}
